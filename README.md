@@ -15,7 +15,6 @@ You'll need to have the following items installed before continuing.
   vagrant plugin install vagrant-omunibus
   vagrant plugin install vagrant-berkshelf
   berks cookbook chef-repo
-  berks install
   ```
 
 
@@ -25,5 +24,6 @@ You'll need to have the following items installed before continuing.
   ```
   vagrant up
   vagrant ssh
+  (vagrant reload --provision)
   ```
 

@@ -1,6 +1,9 @@
 source "https://supermarket.chef.io"
 
-
-
 metadata
 
+cookbook 'nodejs'
+cookbook "ruby"
+cookbook "bundler"
+cookbook "git"
+cookbook "chrome"
