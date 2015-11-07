@@ -7,6 +7,7 @@ cookbook 'nodejs'
 cookbook "ruby"
 cookbook "bundler"
 cookbook "git"
+cookbook "java"
 cookbook "chrome"
 cookbook 'n-and-nodejs',
   :git => 'https://github.com/exratione/n-and-nodejs-cookbook'

@@ -21,7 +21,8 @@ Vagrant.configure(2) do |config|
       'recipe[ruby]',
       'recipe[bundler]',
       'recipe[git]',
-      # 'recipe[chrome]',
+      'recipe[java]',
+      'recipe[chrome]',
       # 'recipe[protractor-selenium-server]',
       "recipe[chef-repo::default]"
     ]
