@@ -16,12 +16,13 @@ end
 
 # Node.jsのパッケージで必要なものをグローバルインストール
 bash "install npm packages" do
-  cwd "/home/vagrant/myweb"
-  user "vagrant"
+  cwd "/home/vagrant"
+  user "root"
   code <<-EOH
-    sudo npm install -g gulp bower
-    bundle install
-    sudo bower install -f --allow-root
+    npm install -g gulp bower
+    # bundle install
+    # sudo bower install -f --allow-root
     # sudo npm install
+    # # sudo npm update
   EOH
 end
