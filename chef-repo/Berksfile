@@ -3,12 +3,12 @@ source "https://supermarket.chef.io"
 metadata
 
 cookbook "build-essential"
-cookbook 'nodejs'
 cookbook "ruby"
 cookbook "bundler"
 cookbook "git"
 cookbook "java"
 cookbook "chrome"
+cookbook "xvfb"
 cookbook 'n-and-nodejs',
   :git => 'https://github.com/exratione/n-and-nodejs-cookbook'
 cookbook 'protractor-selenium-server',

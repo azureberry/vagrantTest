@@ -10,6 +10,10 @@ Vagrant.configure(2) do |config|
 
   # config.vm.synced_folder "../data", "/vagrant_data"
 
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = 2048
+  end
+
   config.berkshelf.berksfile_path = "../chef-repo/Berksfile"
   config.berkshelf.enabled = true
   config.omnibus.chef_version = :latest
@@ -17,12 +21,13 @@ Vagrant.configure(2) do |config|
     chef.cookbooks_path = "../chef-repo/cookbooks"
     chef.run_list = [
       'recipe[build-essential]',
-      'recipe[nodejs]',
+      # 'recipe[nodejs]',
       'recipe[ruby]',
       'recipe[bundler]',
       'recipe[git]',
       'recipe[java]',
       'recipe[chrome]',
+      'recipe[xvfb]',
       # 'recipe[protractor-selenium-server]',
       "recipe[chef-repo::default]"
     ]
