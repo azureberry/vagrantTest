@@ -19,24 +19,24 @@ bash "install nodejs npm packages" do
 end
 
 # githubからリポジトリをクローン
-# git "/home/vagrant/myweb" do
-#     repository "git://github.com/azureberry/myweb.git"
-#     user "vagrant"
-#     group "vagrant"
-#     action :checkout
-# end
+git "/home/vagrant/myweb" do
+    repository "git://github.com/azureberry/myweb.git"
+    user "vagrant"
+    group "vagrant"
+    # action :checkout
+end
 
-# Node.jsのパッケージで必要なものをグローバルインストール
+# リポジトリ内セットアップ
 bash "install myproject" do
-  cwd "/home/vagrant"
+  cwd "/home/vagrant/myweb"
   user "vagrant"
   group "vagrant"
   code <<-EOH
-    cp -a /vagrant/myweb .
-    cd myweb
     bundle install
     sudo bower install --allow-root
     sudo npm install
     node node_modules/protractor/bin/webdriver-manager update
+    chmod u+x build_copy.sh
+    ./build_copy.sh
   EOH
 end
