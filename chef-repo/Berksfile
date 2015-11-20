@@ -9,7 +9,3 @@ cookbook "git"
 cookbook "java"
 cookbook "chrome"
 cookbook "xvfb"
-cookbook 'n-and-nodejs',
-  :git => 'https://github.com/exratione/n-and-nodejs-cookbook'
-cookbook 'protractor-selenium-server',
-  :git => 'https://github.com/exratione/protractor-selenium-server-cookbook'
