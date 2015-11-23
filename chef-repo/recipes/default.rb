@@ -36,7 +36,18 @@ bash "install myproject" do
     sudo bower install --allow-root
     sudo npm install
     node node_modules/protractor/bin/webdriver-manager update
-    chmod u+x build_copy.sh
-    ./build_copy.sh
+    chmod u+x ./script/*.sh
+    # ./script/build.sh
+    ./script/build_copy.sh
+  EOH
+end
+
+
+# serverspecのパッケージをインストール
+bash "install serverspec packages" do
+  cwd "/home/vagrant"
+  user "root"
+  code <<-EOH
+    sudo gem install serverspec rake
   EOH
 end

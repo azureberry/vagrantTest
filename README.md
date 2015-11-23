@@ -9,11 +9,14 @@ You'll need to have the following items installed before continuing.
   * [vagrant](https://www.vagrantup.com/)
   * [virtualbox](https://www.virtualbox.org/)
   * [chefDK](https://downloads.chef.io/chef-dk/)
-  * gem install serverspec rake
+
+
+(初回)
 
   ```
   vagrant init ubuntu/trusty64
   berks cookbook chef-repo
+  serverspec-init
   ```
 
   ```
@@ -31,3 +34,9 @@ You'll need to have the following items installed before continuing.
   (vagrant reload --provision)
   ```
 
+(serverspec test)
+
+  ```
+  cd /vagrant/
+  rake
+  ```
