@@ -81,7 +81,7 @@ describe '[install myproject] リポジトリ内セットアップが完了し�
     '/home/vagrant/myweb/node_modules/protractor/selenium/chromedriver',
     '/home/vagrant/myweb/src/img'
   ]
-  for f in files do
+  files.each do |f|
     describe file(f) do
       it { should exist }
     end
