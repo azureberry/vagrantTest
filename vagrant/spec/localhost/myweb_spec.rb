@@ -7,7 +7,8 @@ pkgs = [
   'openjdk-7-jdk',
   'google-chrome-stable',
   'xvfb',
-  'nodejs'
+  'nodejs',
+  'rake'
 ]
 
 for pkg in pkgs do
@@ -19,8 +20,7 @@ end
 pkgs_gem = [
   'bundler',
   'sass',
-  'serverspec',
-  'rake'
+  'serverspec'
 ]
 
 for pkg in pkgs_gem do
@@ -47,28 +47,42 @@ describe service('xvfb') do
 end
 
 
-# describe port(80) do
-#   it { should be_listening }
-# end
+################################
 
-# gitからリポジトリをチェックアウトされていること
+#  [install nodejs npm packages]
+# apt-get install nodejs
+#      -> pkgs
+# npm install -g
+#      -> pkgs_npm
+
+
+# [git] gitからリポジトリをチェックアウトされていること
 describe file('/home/vagrant/myweb/') do
   it { should be_directory }
 end
 
 
-# リポジトリ内セットアップが完了していること
+# [install myproject] リポジトリ内セットアップが完了していること
+# bundle install
+#      ->pkgs_gem
+
 # bower install
-describe file('/home/vagrant/myweb/bower_components') do
-  it { should be_directory }
-end
-
 # npm install
-describe file('/home/vagrant/myweb/node_modules') do
-  it { should be_directory }
+# node node_modules/protractor/bin/webdriver-manager update
+# build_copy.sh
+files = [
+  '/home/vagrant/myweb/bower_components',
+  '/home/vagrant/myweb/node_modules',
+  '/home/vagrant/myweb/node_modules/protractor/selenium/chromedriver',
+  '/home/vagrant/myweb/src/img'
+]
+for f in files do
+  describe file(f) do
+    it { should exist }
+  end
 end
 
-# build_copy.sh
-describe file('/home/vagrant/myweb/src/img') do
-  it { should be_directory }
-end
+# [install serverspec packages]
+# gem install
+#      -> pkgs_gem
+#      -> pkgs
